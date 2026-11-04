@@ -1,121 +1,21 @@
 <!doctype html>
-<html lang="en">
-<head>
-<meta charset="utf-8">
-<meta name="viewport" content="width=device-width,initial-scale=1">
-<meta name="theme-color" content="#071b50">
-<meta name="description" content="MYRA Home Care Nursing Services — home healthcare service requests in Patna.">
-<title>MYRA Home Care Nursing Services</title>
-<style>
-:root{--navy:#071b50;--blue:#0756b8;--cyan:#16b9d0;--green:#19a765;--gold:#f5c64b;--ink:#14213d;--muted:#63718b;--paper:#f4f8ff;--white:#fff}
-*{box-sizing:border-box}html{scroll-behavior:smooth}body{margin:0;font-family:Inter,system-ui,-apple-system,Segoe UI,Roboto,Arial,sans-serif;color:var(--ink);background:var(--paper)}
-a{color:inherit}.top{background:var(--navy);color:white;padding:9px 5%;display:flex;justify-content:space-between;gap:12px;flex-wrap:wrap;font-size:13px}
-header{position:sticky;top:0;z-index:10;background:#ffffffed;backdrop-filter:blur(12px);border-bottom:1px solid #e4ebf7}
-.nav{max-width:1180px;margin:auto;padding:13px 22px;display:flex;align-items:center;justify-content:space-between;gap:14px}
-.brand{display:flex;align-items:center;gap:11px;font-weight:900;color:var(--navy);letter-spacing:.3px}.brandmark{width:44px;height:44px;border-radius:14px;background:linear-gradient(145deg,#17c5a0,#0870c9);color:white;display:grid;place-items:center;font-size:22px;box-shadow:0 7px 18px #0870c933}
-.brand small{display:block;font-size:10px;letter-spacing:1px;color:#55708f;font-weight:800}
-nav{display:flex;gap:19px;align-items:center;font-size:13px;font-weight:750}nav a{text-decoration:none;color:#35435f}
-.btn{display:inline-flex;justify-content:center;align-items:center;gap:8px;padding:13px 18px;border-radius:13px;background:linear-gradient(120deg,#0872cf,#06459c);color:white;text-decoration:none;font-weight:850;border:0;box-shadow:0 8px 20px #0756b82b}
-.btn.green{background:linear-gradient(120deg,#1bbd75,#07864c)}.btn.light{background:white;color:var(--navy);border:1px solid #dbe6f5;box-shadow:none}
-.wrap{max-width:1180px;margin:auto;padding:0 22px}
-.hero{padding:26px 0 36px;background:radial-gradient(ellipse at 90% 0,#d7f7ee 0,transparent 38%),linear-gradient(135deg,#edf5ff,#fff 55%,#e7fbf5)}
-.banner{width:100%;height:auto;display:block;border-radius:24px;box-shadow:0 18px 48px #102b5b20;border:1px solid #d9e8fa}
-.herofoot{display:flex;justify-content:space-between;align-items:center;gap:20px;flex-wrap:wrap;padding:22px 4px 0}
-.herofoot h1{font-size:clamp(24px,4vw,38px);line-height:1.12;color:var(--navy);margin:0 0 7px}.herofoot p{color:var(--muted);margin:0;max-width:650px;line-height:1.6}
-.actions{display:flex;gap:10px;flex-wrap:wrap}
-.strip{display:grid;grid-template-columns:repeat(3,1fr);gap:12px;margin:0 auto 42px}
-.stat{padding:17px;border-radius:17px;background:white;border:1px solid #e2ebf7;text-align:center;box-shadow:0 8px 24px #183d7510}
-.stat b{display:block;color:var(--navy);font-size:17px}.stat span{font-size:12px;color:var(--muted)}
-section{padding:28px 0 42px}.sectionhead{text-align:center;margin-bottom:23px}.eyebrow{color:#078f76;font-size:11px;font-weight:900;letter-spacing:1.8px;text-transform:uppercase}.sectionhead h2{margin:7px 0;color:var(--navy);font-size:clamp(24px,3vw,32px)}.sectionhead p{margin:0 auto;color:var(--muted);max-width:700px;line-height:1.6}
-.grid{display:grid;grid-template-columns:repeat(4,1fr);gap:14px}
-.service{background:white;border:1px solid #e4ecf7;border-radius:18px;padding:18px;box-shadow:0 8px 22px #183d7508;transition:.2s}
-.service:hover{transform:translateY(-3px);box-shadow:0 14px 30px #183d7515}
-.ico{width:43px;height:43px;border-radius:14px;display:grid;place-items:center;background:#e9f5ff;font-size:22px;margin-bottom:12px}
-.service h3{font-size:15px;margin:0 0 6px;color:var(--navy)}.service p{font-size:12px;line-height:1.5;color:var(--muted);margin:0}
-.info{background:linear-gradient(135deg,#071b50,#0b4a9d);color:white;border-radius:24px;padding:26px;display:grid;grid-template-columns:1.2fr .8fr;gap:20px;align-items:center}
-.info h2{margin:0 0 8px;font-size:25px}.info p{color:#d8e8ff;line-height:1.6;margin:0}.pills{display:flex;flex-wrap:wrap;gap:8px;margin-top:15px}.pill{border:1px solid #ffffff45;background:#ffffff14;border-radius:99px;padding:8px 11px;font-size:12px;font-weight:750}
-.contactbox{background:white;color:var(--navy);border-radius:18px;padding:18px}.contactbox h3{margin:0 0 12px}.phone{display:block;text-decoration:none;font-size:21px;font-weight:900;color:#0756b8;margin:8px 0}
-.download{margin-top:24px;background:white;border:1px solid #dce7f5;border-radius:20px;padding:22px;display:flex;justify-content:space-between;align-items:center;gap:16px;flex-wrap:wrap}
-.download h3{margin:0 0 5px;color:var(--navy)}.download p{margin:0;color:var(--muted);font-size:13px}
-.status{display:inline-block;border-radius:99px;background:#fff2d8;color:#8c5b00;padding:7px 11px;font-size:11px;font-weight:900;letter-spacing:.6px;margin-bottom:8px}
-.status.live{background:#dcf8e9;color:#08733d}
-footer{background:#06153d;color:#c8d7f0;margin-top:35px;padding:25px 0;font-size:12px}footer .foot{display:flex;justify-content:space-between;gap:15px;flex-wrap:wrap}
-.note{font-size:11px;color:#73819a;line-height:1.6;margin-top:17px}
-@media(max-width:850px){.grid{grid-template-columns:repeat(2,1fr)}nav{display:none}.info{grid-template-columns:1fr}.herofoot{align-items:flex-start}.strip{grid-template-columns:1fr 1fr}}
-@media(max-width:480px){.grid{grid-template-columns:1fr 1fr;gap:9px}.service{padding:13px}.service h3{font-size:13px}.service p{font-size:11px}.strip{gap:8px}.stat{padding:12px}.top{font-size:11px}.hero{padding-top:14px}.banner{border-radius:14px}.wrap{padding:0 14px}.nav{padding:10px 14px}}
-</style>
-</head>
-<body>
-<div class="top"><span>MYRA Home Care Nursing Services</span><span>Patna, Bihar · Call for service availability</span></div>
-<header><div class="nav">
-  <div class="brand"><div class="brandmark">✚</div><div>MYRA <small>HOME CARE NURSING SERVICES</small></div></div>
-  <nav><a href="#services">Services</a><a href="#team">Our Team</a><a href="#contact">Contact</a><a href="#app">App Download</a></nav>
-  <a class="btn green" href="tel:+919508745151">☎ Call Now</a>
-</div></header>
-<main>
-<section class="hero"><div class="wrap">
-  <img class="banner" src="myra-banner.jpg" alt="MYRA Home Care Nursing Services — service information banner">
-  <div class="herofoot"><div><h1>Better Care ❤️ Better Life</h1><p>Home healthcare support at your doorstep in Patna. Contact our team to discuss your care needs and confirm staff and service availability.</p></div>
-  <div class="actions"><a class="btn green" href="tel:+919508745151">Call 9508745151</a><a class="btn" href="https://wa.me/91995828414" target="_blank" rel="noopener">WhatsApp Us</a></div></div>
-</div></section>
-<div class="wrap"><div class="strip">
-  <div class="stat"><b>Male & Female Staff</b><span>Subject to availability</span></div>
-  <div class="stat"><b>Home Care Support</b><span>Service requests by phone</span></div>
-  <div class="stat"><b>Patna, Bihar</b><span>Confirm service area first</span></div>
-</div></div>
-<section id="services"><div class="wrap">
-  <div class="sectionhead"><div class="eyebrow">Our Care Services</div><h2>Healthcare Support at Home</h2><p>Choose a service and call our team. All clinical procedures are subject to assessment, prescription/clinical appropriateness, qualified staff availability and confirmation.</p></div>
-  <div class="grid">
-    <article class="service"><div class="ico">💉</div><h3>Injection</h3><p>Injection administration by an appropriately qualified professional when prescribed and suitable.</p></article>
-    <article class="service"><div class="ico">🩹</div><h3>Wound Dressing</h3><p>Wound dressing and basic nursing support as clinically advised.</p></article>
-    <article class="service"><div class="ico">🌬️</div><h3>Nebulization</h3><p>Nebulization support as advised by a healthcare professional.</p></article>
-    <article class="service"><div class="ico">🧪</div><h3>Blood Sample Collection</h3><p>Home sample collection and coordination with the relevant laboratory.</p></article>
-    <article class="service"><div class="ico">🧑‍⚕️</div><h3>Patient Attendant (GDA)</h3><p>Assistance with daily care and patient support at home.</p></article>
-    <article class="service"><div class="ico">🩺</div><h3>IV & Cannula Care</h3><p>IV-related nursing support only when clinically ordered and safely appropriate.</p></article>
-    <article class="service"><div class="ico">➰</div><h3>Catheter Care</h3><p>Catheter-related care by qualified staff as clinically indicated.</p></article>
-    <article class="service"><div class="ico">🧴</div><h3>Feeding Tube Care</h3><p>Feeding tube care and support according to the care plan.</p></article>
-    <article class="service"><div class="ico">🛏️</div><h3>Post-Operative Nursing</h3><p>Support after hospital discharge, based on the treating team's instructions.</p></article>
-    <article class="service"><div class="ico">👵</div><h3>Elderly Care</h3><p>Support for older adults, bedridden patients and people needing assistance at home.</p></article>
-    <article class="service"><div class="ico">💓</div><h3>BP Check</h3><p>Blood pressure measurement and recording for care follow-up.</p></article>
-    <article class="service"><div class="ico">🩸</div><h3>Blood Sugar Check</h3><p>Blood glucose check and recording when requested.</p></article>
-    <article class="service"><div class="ico">🚑</div><h3>Ambulance Coordination</h3><p>Call to discuss ambulance coordination; availability and response time must be confirmed.</p></article>
-    <article class="service"><div class="ico">⏱️</div><h3>12-Hour / 24-Hour Shifts</h3><p>Care attendant shift requests can be discussed with the manager.</p></article>
-    <article class="service"><div class="ico">🧑‍⚕️</div><h3>Male & Female Staff</h3><p>Tell us your preference; assignment depends on staff availability.</p></article>
-    <article class="service"><div class="ico">📋</div><h3>Lab Booking & Reports</h3><p>Ask about lab booking, sample collection and report delivery coordination.</p></article>
-  </div>
-</div></section>
-<section id="team"><div class="wrap"><div class="info">
-  <div><div class="eyebrow" style="color:#7ce5c0">Care with responsibility</div><h2>Support for Patients & Families</h2><p>Share the patient's care requirement, location and preferred timing with our manager. The team will confirm the suitable service, quotation and staff availability before booking.</p>
-    <div class="pills"><span class="pill">Male Staff</span><span class="pill">Female Staff</span><span class="pill">Nursing Support</span><span class="pill">Patient Attendants</span><span class="pill">Home Sample Collection</span></div>
-  </div>
-  <div class="contactbox"><h3>Speak with MYRA</h3><a class="phone" href="tel:+919508745151">9508745151</a><a class="phone" href="tel:+91995828414">9958282414</a><p style="font-size:12px;color:#65738c">Call to confirm the service area, timing, price and staff availability.</p><a class="btn green" style="width:100%;margin-top:8px" href="https://wa.me/91995828414" target="_blank" rel="noopener">Chat on WhatsApp</a></div>
-</div></div></section>
-<section id="contact"><div class="wrap"><div class="sectionhead"><div class="eyebrow">Contact & Booking</div><h2>Tell Us What Care You Need</h2><p>For a booking request, call or WhatsApp. Please do not send sensitive medical documents or payment details to an unknown number.</p></div>
-<div class="actions" style="justify-content:center"><a class="btn green" href="tel:+919508745151">Call 9508745151</a><a class="btn" href="tel:+91995828414">Call 9958282414</a><a class="btn light" href="https://wa.me/91995828414" target="_blank" rel="noopener">WhatsApp</a></div>
-<p class="note" style="text-align:center">MYRA is a home-care service coordinator, not an emergency response replacement. For a medical emergency, contact local emergency services or go to the nearest emergency department. Service requests are not confirmed until the team confirms availability and terms.</p>
-</div></section>
-<section id="app"><div class="wrap"><div class="download">
-  <div><div id="appStatus" class="status">APP NOT AVAILABLE YET</div><h3 id="appTitle">MYRA Mobile App</h3><p id="appDescription">The official app download will appear here when MYRA publishes a release.</p><p id="appVersion" style="margin-top:7px"></p></div>
-  <a id="appDownload" class="btn" href="#" hidden>Download APK</a>
-</div></div></section>
-</main>
-<footer><div class="wrap foot"><strong>MYRA Home Care Nursing Services</strong><span>Better Care ❤️ Better Life</span><span>Patna, Bihar</span></div></footer>
-<script>
-(async()=>{
- try{
-  const r=await fetch('./config.json?v='+Date.now(),{cache:'no-store'});
-  if(!r.ok) return;
-  const c=await r.json();
-  document.getElementById('appTitle').textContent=c.appName||'MYRA Mobile App';
-  document.getElementById('appDescription').textContent=c.description||'Official app download';
-  const live=c.available===true && typeof c.apkUrl==='string' && c.apkUrl.startsWith('https://');
-  const s=document.getElementById('appStatus');
-  if(live){
-   s.textContent='APK AVAILABLE';s.classList.add('live');
-   document.getElementById('appVersion').textContent='Version '+(c.version||'')+(c.updated?' · Updated '+c.updated:'');
-   const a=document.getElementById('appDownload');a.href=c.apkUrl;a.hidden=false;
-  }
- }catch(e){}
-})();
-</script>
-</body></html>
+<html lang="en" class="dark">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>MYRA HomeCare Nursing Services | Patna, Bihar</title>
+    <meta name="description" content="Professional home care nursing services platform in Patna, Bihar. Featuring dedicated dashboards for Owner, Manager, Staff, and Customers, 24x7 service requests, UPI payments, and zero-budget architecture." />
+    <meta property="og:title" content="MYRA HomeCare Nursing Services | Patna, Bihar" />
+    <meta property="og:description" content="Professional home care nursing services platform in Patna, Bihar. Featuring dedicated dashboards for Owner, Manager, Staff, and Customers, 24x7 service requests, UPI payments, and zero-budget architecture." />
+    <meta property="og:type" content="website" />
+    <meta name="twitter:card" content="summary_large_image" />
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:ital,wght@0,300..800;1,300..800&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+  </head>
+  <body class="bg-[#050c1c] text-slate-100 font-sans antialiased selection:bg-cyan-500 selection:text-white">
+    <div id="root"></div>
+    <script type="module" src="/src/main.tsx"></script>
+  </body>
+</html>
+

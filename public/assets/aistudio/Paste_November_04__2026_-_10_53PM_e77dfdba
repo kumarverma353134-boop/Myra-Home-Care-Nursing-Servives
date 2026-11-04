@@ -1,0 +1,1753 @@
+# MASTER DEVELOPMENT PROMPT — MYRA HOME CARE NURSING SERVICES
+
+## 1. Your Role
+
+Act as my Senior Full-Stack Developer, Software Architect, UI/UX Designer, Database Engineer, Security Engineer and QA Tester.
+
+I want you to complete my existing **MYRA Home Care Nursing Services** project into a professional, production-ready healthcare service management platform.
+
+You are responsible for:
+- Examining my existing project.
+- Understanding its existing code and features.
+- Improving and completing the existing project.
+- Developing all required dashboards and workflows.
+- Integrating frontend, backend and database.
+- Securing customer, patient and staff information.
+- Testing every important feature.
+- Finding and fixing bugs.
+- Preparing all final source files.
+- Providing a complete installation, deployment and maintenance guide.
+
+**Do not simply give me a development plan. Actually implement the project and modify the files wherever your tools allow.**
+
+## 2. ABSOLUTE RULE: ZERO-BUDGET DEVELOPMENT
+
+This is my most important requirement.
+
+I currently want to use everything for free.
+
+The first release must use only genuinely available free-tier services.
+
+### Strict financial restrictions
+
+1. No paid hosting.
+2. No paid database.
+3. No paid APIs.
+4. No paid AI APIs.
+5. No paid email subscriptions.
+6. No Razorpay or other paid payment gateway.
+7. No Firebase Blaze upgrade without my explicit approval.
+8. No Google Cloud paid services.
+9. No paid domain purchase.
+10. No automatic paid upgrade.
+11. No hidden subscriptions.
+12. No services requiring a credit card for activation unless I explicitly approve.
+
+Use free provider subdomains initially.
+
+Before selecting any technology, check its current official pricing, quotas, commercial-use policies and payment requirements.
+
+Possible technologies to evaluate:
+- Firebase Authentication (free tier).
+- Firestore (free tier).
+- Firebase Hosting (free tier).
+- Cloudflare Pages.
+- Cloudflare Workers.
+- Brevo Free for transactional emails.
+- Other genuinely free alternatives if they offer better security and functionality.
+
+Do not select a service merely because it advertises a free plan. Verify the actual limitations.
+
+Do not use GitHub Pages for the live commercial business website. GitHub can be used for source-code version control.
+
+### Mandatory zero-cost fallback
+
+If any feature requires a paid plan, billing account, paid API or unavailable free service:
+
+- Do not activate it.
+- Do not connect billing.
+- Do not silently replace it with another paid service.
+- Keep that feature disabled or mark it Future Phase.
+- Explain the limitation.
+- Offer a genuinely free alternative where possible.
+
+Never pretend an incomplete feature is working.
+
+My budget for Version 1 is **₹0**.
+
+---
+
+# 3. FIRST STEP: INSPECT MY EXISTING PROJECT
+
+Before writing any code, inspect the entire existing project.
+
+I do not want duplicate files, unnecessary rewrites or accidental deletion of working features.
+
+First:
+
+1. Identify the actual project root.
+2. Inspect the complete folder structure.
+3. Check the existing frontend and backend.
+4. Inspect existing database schemas.
+5. Inspect existing authentication.
+6. Inspect all existing dashboards.
+7. Inspect existing service information and website pages.
+8. Check dependencies and versions.
+9. Identify incomplete modules.
+10. Identify compilation errors and existing bugs.
+
+Create a project inventory with:
+
+| Area | Current Condition | Required Action |
+|---|---|---|
+| Website | Inspect | Complete/improve |
+| Customer Dashboard | Inspect | Complete/improve |
+| Owner Dashboard | Inspect | Complete/improve |
+| Manager Dashboard | Inspect | Complete/improve |
+| Staff Dashboard | Inspect | Complete/improve |
+| Backend | Inspect | Complete/integrate |
+| Database | Inspect | Secure/configure |
+| Authentication | Inspect | Complete |
+| Notifications | Inspect | Complete |
+| Testing | Inspect | Implement |
+
+Before modifications:
+- Make a backup of the existing project.
+- Preserve existing working features.
+- Use Git branches or checkpoints.
+- Do not delete unrelated files.
+- Do not overwrite working modules without examining them.
+
+If existing MYRA Flutter Customer and Manager apps are part of the workspace, inspect them too. Do not unnecessarily rebuild them from scratch.
+
+---
+
+# 4. BRANDING AND BUSINESS INFORMATION
+
+Official business name:
+
+**MYRA Home Care Nursing Services**
+
+Website brand:
+
+**MYRA HomeCare**
+
+Official contact number:
+
+**9508745151**
+
+WhatsApp:
+
+**+91 9508745151**
+
+Official business email:
+
+**myrahomecareservices@gmail.com**
+
+Business location:
+
+**Patna, Bihar, India**
+
+Keep all business information editable through Owner Dashboard wherever appropriate.
+
+Do not invent:
+- GSTIN.
+- Business registration numbers.
+- Nursing licences.
+- Medical accreditation.
+- Government approvals.
+- Professional qualifications.
+- False healthcare claims.
+
+Use existing logo and branding assets if available.
+
+---
+
+# 5. FOUR MAIN USER DASHBOARDS
+
+Build four separate role-based interfaces.
+
+## A. OWNER DASHBOARD
+
+Design: Modern professional sidebar dashboard.
+
+Theme:
+- White.
+- Navy blue.
+- Turquoise.
+- Subtle gold accents.
+
+Owner has complete business control.
+
+Main sections:
+
+1. Overview.
+2. Business Analytics.
+3. Customer Management.
+4. Patient Management.
+5. Booking Management.
+6. Staff Management.
+7. Staff Verification.
+8. Quotations.
+9. Payments.
+10. UPI Settings.
+11. Complaints.
+12. Support Tickets.
+13. Customer Reviews.
+14. Services Management.
+15. Service Availability.
+16. Attendance and Schedules.
+17. Customer–Manager Chats.
+18. Manager–Staff Chats.
+19. Notifications.
+20. Activity Logs.
+21. Reports and Exports.
+22. SEO Management.
+23. Blog Management.
+24. Website Content Management.
+25. Legal Pages.
+26. Announcements.
+27. AI Assistant Management.
+28. Accessibility Settings.
+29. Language Management.
+30. Security Management.
+31. Device Management.
+32. Backup Settings.
+33. Master Control Center.
+
+Owner must have access to all authorized business settings.
+
+## B. MANAGER DASHBOARD
+
+Design: Modern professional sidebar dashboard.
+
+Manager has complete daily operational access.
+
+Manager can:
+
+- Manage customer booking requests.
+- Approve/reject requests.
+- Create and edit quotations.
+- Assign and reassign Staff.
+- Manage schedules.
+- Manage attendance.
+- Manage customer complaints.
+- Manage support tickets.
+- Verify UPI payment claims.
+- Process operational refund requests.
+- Manage customer conversations.
+- Manage Staff conversations.
+- Create manual bookings.
+- Add/invite Staff.
+- Edit Staff profiles.
+- Manage Staff availability.
+- Handle rescheduling.
+- Handle cancellations.
+- View operational analytics.
+
+Manager cannot:
+- Change Owner security.
+- Change Owner account details.
+- Change UPI configuration.
+- Change website branding.
+- Change legal pages without Owner permission.
+- Permanently delete Staff accounts.
+- Override Owner security controls.
+- Publish unapproved public blog articles.
+
+## C. STAFF DASHBOARD
+
+Design: Futuristic dark interface.
+
+Visual style:
+- Dark navy background.
+- Neon blue/turquoise accents.
+- Glass effects.
+- Smooth animations.
+- Animated job cards.
+- Premium glowing status indicators.
+
+Staff dashboard features:
+
+- My Assigned Jobs.
+- Booking Details.
+- Duty Schedule.
+- Attendance.
+- Leave Requests.
+- Customer Details.
+- Assigned Services.
+- Customer Care Instructions.
+- Manager Chat.
+- Notifications.
+- Staff Profile.
+- Verification Status.
+- Unable to Attend button.
+- Service Start and Completion actions.
+
+Staff can access only their assigned bookings and authorized information.
+
+Staff cannot view other customers' private information.
+
+## D. CUSTOMER DASHBOARD
+
+Design: Premium light theme.
+
+Features:
+
+- Welcome screen.
+- Customer Profile.
+- Multiple Patient Profiles.
+- Multiple Saved Addresses.
+- Emergency Contact.
+- Request New Service.
+- Active Bookings.
+- Animated Booking Tracking.
+- Pending Quotations.
+- Payment Details.
+- Booking History.
+- Notifications.
+- Manager Chat.
+- Complaint Management.
+- Support Center.
+- Reviews.
+- AI Assistant.
+- Account Security.
+- Account Deletion Request.
+- Language Settings.
+- Accessibility Settings.
+
+Use Google Sign-In.
+
+Guest bookings are not allowed.
+
+---
+
+# 6. LOGIN AND ROLE PERMISSIONS
+
+Implement secure Google Authentication.
+
+### Owner
+
+- Google Sign-In.
+- Authenticator application-based 2FA as the target.
+- Backup recovery codes.
+- Secondary authenticator device.
+- Session timeout.
+- Device management.
+- Security alerts.
+
+The initial session timeout is 30 minutes of inactivity and must be configurable through Owner Dashboard.
+
+If real application-level TOTP cannot be implemented securely without paid services, use Google Account 2-Step Verification as the initial free security measure. Do not simulate 2FA.
+
+### Manager
+
+- Google Sign-In.
+- Email OTP.
+- OTP expiration.
+- Resend limits.
+- New-device alerts.
+- Account recovery only after Owner verification and approval.
+
+### Staff
+
+- Google Sign-In.
+- Email OTP.
+- Individual Staff accounts.
+- Owner approval before account activation.
+- Owner approval for account recovery.
+
+Staff session timeout:
+- Default: 30 minutes.
+- Configurable by Owner.
+
+### Owner and Manager Gmail
+
+The authorized Owner/Manager workspace may use:
+
+myrahomecareservices@gmail.com
+
+Provide separate Owner and Manager workspace interfaces, with server-enforced permission checks.
+
+If both workspaces are assigned to the same Google account, Owner permissions must never be granted simply by changing a frontend selector. Owner access requires proper server-side authorization and step-up verification.
+
+Additional users must have individual accounts. Do not share login credentials.
+
+---
+
+# 7. COMPLETE WEBSITE DESIGN
+
+Use a premium light theme.
+
+Colour palette:
+- White background.
+- Navy blue.
+- Turquoise.
+- Subtle gold.
+
+No public dark-mode switch.
+
+### Sticky Header
+
+Desktop:
+
+- MYRA logo.
+- Home.
+- Services.
+- About.
+- FAQ.
+- Contact.
+- Login / Sign Up.
+
+Mobile:
+
+- MYRA Logo.
+- Hamburger menu.
+- Visible Login button.
+
+Header remains sticky while scrolling.
+
+### Homepage
+
+Create a premium, modern healthcare website.
+
+Include:
+- Hero section.
+- Introduction.
+- Services.
+- Why Choose MYRA.
+- How It Works.
+- Service Coverage.
+- Customer Reviews.
+- FAQ.
+- Contact.
+- AI Assistant access.
+- WhatsApp floating button.
+
+Do not invent medical certifications or unsupported claims.
+
+### Services
+
+Preserve the existing 16 services.
+
+Do not replace the existing service catalogue with invented services.
+
+Every service must have:
+- Name.
+- Description.
+- Image or icon.
+- Category.
+- Availability.
+- Service details.
+- Booking button.
+- SEO-friendly URL.
+
+Maintain the existing service-card popup behaviour.
+
+Clicking a service card should open its service popup, while each service also has a crawlable dedicated SEO URL.
+
+### About Us
+
+Include:
+
+- Introduction.
+- Mission.
+- Vision.
+- Why Choose MYRA.
+- Our Commitment.
+- Healthcare Service Philosophy.
+
+Owner can edit content and image references.
+
+### Footer
+
+Include:
+
+- MYRA logo.
+- Quick Links.
+- Service Categories.
+- Contact Number: 9508745151.
+- WhatsApp.
+- Patna, Bihar.
+- Privacy Policy.
+- Terms & Conditions.
+- Cancellation & Refund Policy.
+- Medical Disclaimer.
+- Contact & Support Policy.
+- Social Media Links.
+- Copyright.
+
+### Social Media
+
+Owner can add/edit:
+
+- Instagram.
+- Facebook.
+- YouTube.
+- WhatsApp.
+
+Hide platforms without configured links.
+
+### App Download Section
+
+Initially hidden.
+
+Owner can later:
+- Enable/disable it.
+- Add APK download URL.
+- Update version.
+- Edit description.
+- Set release information.
+
+### Announcements
+
+Only important announcements, such as:
+
+- New service.
+- Temporary service unavailability.
+- Important notices.
+- Service area updates.
+- Scheduled maintenance.
+
+Do not add unnecessary promotional popups.
+
+Owner controls publishing and expiry.
+
+### Maintenance Mode
+
+Create a premium MYRA maintenance page.
+
+Owner can edit:
+- Hindi message.
+- English message.
+- Expected reopening time.
+- ON/OFF status.
+
+Owner Dashboard must remain accessible while the public website is under maintenance.
+
+---
+
+# 8. BOOKING MANAGEMENT
+
+Customers can request a service 24×7.
+
+Booking options:
+
+1. ASAP.
+2. Scheduled booking.
+
+All 16 existing services start with default 24×7 availability.
+
+Owner can configure each service's actual availability, days and timings separately.
+
+ASAP does not guarantee immediate service.
+
+Manager must verify availability before confirming a booking.
+
+### Quotation
+
+Quotation validity: 72 hours.
+
+- Customer receives quotation.
+- Customer can Accept/Reject.
+- Expired quotation cannot be accepted.
+- Customer can request a refreshed quotation.
+
+### Rescheduling
+
+Customer submits a reschedule request.
+
+Manager checks availability and approves/rejects.
+
+Notify Customer and Staff about approved changes.
+
+### Multiple Services
+
+Manager can choose:
+
+- One Staff for multiple services.
+- Different Staff for different services.
+
+### Manual Booking
+
+Manager can create manual booking drafts for requests received through phone or WhatsApp.
+
+Record source:
+- Website.
+- Phone.
+- WhatsApp.
+
+However, a manual inquiry must be linked to a Google-authenticated customer account before it becomes an active booking.
+
+---
+
+# 9. PATIENT AND CUSTOMER MANAGEMENT
+
+One Google account can manage multiple patient profiles.
+
+Example:
+- Father.
+- Mother.
+- Child.
+- Other family members.
+
+Each patient has a separate booking history.
+
+Customer profile fields:
+
+- Name.
+- Mobile.
+- Profile image or default Google avatar.
+- Multiple addresses.
+- Emergency contact.
+- Saved patient profiles.
+- Necessary care information.
+
+Collect minimum necessary sensitive information and obtain consent.
+
+Do not create unnecessary file upload features.
+
+Where an image is needed, use existing assets, Google profile images or approved external image URLs. Do not add customer document-upload controls.
+
+---
+
+# 10. ABSOLUTELY NO DOCUMENT UPLOAD SYSTEM IN VERSION 1
+
+This is a strict requirement.
+
+Remove all file attachment/upload controls from:
+
+- Customer booking forms.
+- Customer–Manager Chat.
+- Manager–Staff Chat.
+- Complaint forms.
+- Support tickets.
+- Patient profiles.
+- Staff onboarding forms.
+
+No PDF uploads.
+
+No medical report uploads.
+
+No prescription uploads.
+
+No image attachments.
+
+If a customer needs to send a prescription, report or photograph, direct them to the official MYRA WhatsApp number:
+
+**9508745151**
+
+Use this WhatsApp link:
+
+https://wa.me/919508745151
+
+Show a clear button:
+
+**Share Documents on WhatsApp**
+
+Customer and Manager in-app messaging must remain text-only.
+
+For Staff verification, use Owner manual verification in Version 1. The Owner may inspect original documents outside the application and record verification status. Do not create an upload control.
+
+Secure Staff document uploads may be considered in a later phase only after separate approval and a suitable storage solution.
+
+---
+
+# 11. STAFF ASSIGNMENT AND VERIFICATION
+
+Manager can add/invite Staff.
+
+Staff must:
+1. Accept invitation.
+2. Sign in with Google.
+3. Submit necessary profile information.
+4. Wait for Owner approval.
+
+Owner performs final Staff activation.
+
+Support:
+- Manual qualification verification.
+- Document-verification status recorded after external/manual inspection.
+- Verified / Rejected status.
+- Verification date.
+- Verified qualification.
+- Designation.
+
+Do not upload documents in Version 1.
+
+### Customer-facing Staff Profile
+
+Show:
+- Staff name.
+- Profile photo when available.
+- Designation.
+- MYRA Verified badge.
+- Approved qualification.
+
+Never show Staff's personal mobile number to customers.
+
+The customer sees Staff details only after the assigned Staff accepts the assignment.
+
+Before acceptance:
+
+**Staff Assignment Pending**
+
+After acceptance:
+
+Show confirmed Staff profile.
+
+### Staff Unable to Attend
+
+Provide a dedicated button.
+
+Staff submits reason.
+
+Manager receives urgent notification.
+
+Manager arranges replacement Staff and informs the customer.
+
+---
+
+# 12. PAYMENT MANAGEMENT
+
+Version 1 supports ONLY:
+
+1. Cash.
+2. UPI.
+
+Do not integrate Razorpay.
+
+Do not add credit/debit card payment gateways.
+
+### UPI System
+
+Owner Dashboard:
+- Edit UPI ID.
+- Enable/disable UPI.
+- Generate QR code dynamically from the configured UPI ID.
+- Preview UPI details.
+
+Do not require QR-image upload.
+
+Customer:
+- See UPI ID and QR code.
+- Pay externally through Google Pay, PhonePe or Paytm.
+- Click "I Have Paid".
+- Enter UPI Transaction ID / UTR.
+
+No screenshot upload.
+
+Payment status:
+
+Pending Verification → Verified Paid / Rejected.
+
+Manager manually checks the payment and marks it paid only after verification.
+
+Generate professional PDF receipts/invoices.
+
+Payment totals and business revenue must use verified payment records only.
+
+Do not confuse quotations with collected revenue.
+
+---
+
+# 13. CUSTOMER REVIEWS
+
+After a service is completed and the customer confirms completion:
+
+- 1–5 star rating.
+- Written review.
+- Review submission.
+
+Owner must approve reviews before public display.
+
+Reviews section remains hidden initially.
+
+Owner can enable/disable public reviews.
+
+---
+
+# 14. COMPLAINTS AND SUPPORT CENTER
+
+### Complete Complaint Management
+
+Customer can:
+
+- Select category.
+- Link booking.
+- Write description.
+- Select priority.
+- Track status.
+
+Status:
+
+- Open.
+- In Review.
+- Resolved.
+
+No file uploads.
+
+### Complete Help Center
+
+Include:
+- FAQ.
+- How to Book.
+- Payment Help.
+- Cancellation Information.
+- WhatsApp Contact.
+- Raise Support Ticket.
+- Track Ticket.
+
+Manager receives enquiries in their dashboard.
+
+Support status:
+- New.
+- In Progress.
+- Resolved.
+
+### Priority Targets
+
+Initial response targets:
+
+| Priority | Target |
+|---|---|
+| High | 15 minutes |
+| Medium | 1 hour |
+| Low | 24 hours |
+
+Customer selects priority.
+
+Manager can adjust it.
+
+Owner can customize targets later.
+
+Create reminders and overdue escalation:
+- Manager reminder.
+- Manager overdue alert.
+- Owner notification.
+- Escalation reports.
+
+Use only a genuinely free scheduling mechanism. If scheduled background jobs are unavailable under the chosen free tier, implement a transparent limitation instead of pretending reminders are automatic.
+
+### Contact Page
+
+Include:
+- 9508745151.
+- WhatsApp.
+- Patna, Bihar.
+- Enquiry form.
+- Business hours.
+- Emergency disclaimer.
+
+Contact enquiries should appear in Manager Dashboard.
+
+Support hours are configurable by Owner.
+
+Service requests remain available 24×7.
+
+---
+
+# 15. CUSTOMER–MANAGER AND MANAGER–STAFF CHAT
+
+Implement:
+
+- Private Customer–Manager chat.
+- Manager–Staff chat.
+- Text messages only.
+- Unread counts.
+- Read status.
+- Timestamps.
+- Message history.
+- Notifications.
+- Role-based access.
+
+No image, PDF or file attachments.
+
+Customers who need to share files should use MYRA WhatsApp.
+
+---
+
+# 16. NOTIFICATION SYSTEM
+
+Provide:
+
+- In-dashboard notifications.
+- Browser push notifications.
+- Email notifications.
+
+For:
+- Booking received.
+- Quotation.
+- Quotation expiry.
+- Payment verification.
+- Payment confirmation.
+- Staff assignment.
+- Rescheduling.
+- Complaints.
+- Support replies.
+- Service progress.
+- Staff updates.
+
+Owner can configure notification types and channels.
+
+Customer and Staff preferences must be respected.
+
+Create:
+- Animated notification popups.
+- Sound alerts.
+- Badge counts.
+- Urgency levels.
+- Read/unread.
+- All/unread filters.
+- Search.
+- Category filters.
+- Mark all as read.
+- Delete.
+- Notification history.
+- Pin/favourite.
+
+Browser sound and push features must respect permission requirements.
+
+Use secure, genuinely free email delivery only. Never expose email API keys in frontend code.
+
+---
+
+# 17. BUSINESS ANALYTICS
+
+Owner Dashboard includes:
+
+- Total Bookings.
+- Pending Requests.
+- Completed Services.
+- Revenue.
+- Pending Payments.
+- Most Requested Services.
+- Daily Reports.
+- Weekly Reports.
+- Monthly Reports.
+- Staff Performance.
+- Staff Attendance.
+- Cancellations.
+- Customer Growth.
+- Complaints.
+- Manager Performance.
+
+Include interactive charts.
+
+### Export
+
+Support:
+- CSV.
+- Excel (XLSX).
+- PDF.
+
+Allow filtering by date, category, status and service.
+
+Role-based export permissions.
+
+Do not unnecessarily expose medical data in exported reports.
+
+Log all exports.
+
+---
+
+# 18. ACTIVITY LOGS AND GLOBAL SEARCH
+
+Maintain activity history for important actions:
+
+- Booking changes.
+- Staff assignments.
+- Quotations.
+- Payment verification.
+- Refund decisions.
+- Account status.
+- Service configuration.
+- Website configuration.
+- Reviews.
+- Complaints.
+- Security changes.
+- Data exports.
+
+Store actor, role, action, date, time and relevant record ID.
+
+Ordinary Manager/Staff users must not be able to modify or delete audit records.
+
+### Global Search
+
+Owner and Manager can search authorized records:
+
+- Customers.
+- Patient profiles.
+- Bookings.
+- Services.
+- Staff.
+- Attendance.
+- Payments.
+- Invoices.
+- Complaints.
+- Support tickets.
+- Quotations.
+- Activity logs.
+
+Add date, status and service filters.
+
+---
+
+# 19. DASHBOARD PERSONALIZATION
+
+Owner and Manager can:
+
+- Rearrange cards.
+- Show/hide widgets.
+- Select charts.
+- Customize quick actions.
+- Save multiple layouts.
+- Name layouts.
+- Switch layouts.
+- Restore default layout.
+
+Save preferences separately per user.
+
+Staff dashboard remains futuristic dark.
+
+Customer dashboard remains premium light.
+
+---
+
+# 20. SECURITY AND ACCOUNT MANAGEMENT
+
+### Owner
+
+- Multi-device login.
+- Session/device list.
+- Revoke unknown sessions.
+- New-device email alert.
+- 30-minute default inactivity timeout.
+- Configurable timeout.
+- Authenticator security where securely available.
+- Backup codes.
+- Secondary authenticator recovery.
+
+### Manager
+
+- Google Sign-In + Email OTP.
+- Owner-controlled recovery.
+- Recovery identity verification.
+- Recovery audit log.
+
+### Staff
+
+- Google Sign-In + Email OTP.
+- Owner-controlled account recovery.
+- Owner final activation.
+- Configurable session timeout, default 30 minutes.
+
+### Customer
+
+- Google Sign-In.
+- Account activity.
+- New-device alert.
+- Sensitive changes require re-authentication.
+
+### Account Deletion
+
+Customer submits deletion request.
+
+Owner approves/rejects.
+
+After approval:
+- Delete personal profile information according to the deletion policy.
+- Retain legally required financial records in restricted form where necessary.
+- Remove unnecessary personal data.
+- Do not restore deleted profiles if the customer registers again with the same Gmail.
+
+Do not silently delete legally required business records.
+
+---
+
+# 21. MASTER CONTROL CENTER
+
+Create a central control panel in Owner Dashboard.
+
+Owner can control:
+
+- Website maintenance mode.
+- Customer registration.
+- New bookings.
+- Staff assignment.
+- Customer chat.
+- UPI payments.
+- Individual services.
+- Important announcements.
+
+Maintenance must never lock the Owner out of administration.
+
+Implement these switches with server-side enforcement, not just frontend hiding.
+
+---
+
+# 22. SEO AND CONTENT MANAGEMENT
+
+### SEO
+
+- Page titles.
+- Meta descriptions.
+- Sitemap.
+- Robots.txt.
+- Patna local SEO.
+- Individual service URLs.
+- Structured data.
+- Social sharing previews.
+- Google Search Console support.
+
+Owner can edit SEO information.
+
+Do not promise Google ranking.
+
+### Blog
+
+Owner:
+- Create.
+- Edit.
+- Publish.
+- Unpublish.
+- Delete.
+
+Manager:
+- Create drafts.
+- Edit drafts.
+- Submit drafts for approval.
+
+Only Owner can publish articles.
+
+Healthcare articles must be reviewed for accuracy. Do not publish AI-generated medical advice without appropriate professional review.
+
+### Legal Pages
+
+Create:
+
+1. Privacy Policy.
+2. Terms & Conditions.
+3. Cancellation & Refund Policy.
+4. Medical Disclaimer.
+5. Contact & Support Policy.
+
+Use editable content.
+
+Do not present unreviewed legal drafts as guaranteed legal compliance. Clearly mark them for final business/legal review.
+
+---
+
+# 23. LANGUAGE AND ACCESSIBILITY
+
+First release:
+
+- Hindi.
+- English.
+
+Future-ready architecture for:
+- Bhojpuri.
+- Maithili.
+- Other regional languages.
+
+Translations:
+- Automatic translation drafts where a genuinely free method exists.
+- Manual Owner review.
+- Owner approval before publishing.
+
+Do not automatically publish unreviewed healthcare/legal translations.
+
+### Accessibility
+
+Implement:
+
+- Readable fonts.
+- Colour contrast.
+- Keyboard navigation.
+- Screen readers.
+- Font size controls.
+- Text-to-Speech.
+- Reduced motion.
+- High contrast.
+- Accessible forms.
+- Accessible buttons.
+
+Owner sets global defaults.
+
+Users can adjust personal preferences.
+
+### Voice Assistance
+
+Support user-initiated Hindi/English voice assistance where browsers support it.
+
+- Microphone permission.
+- Visible listening state.
+- No always-on recording.
+- Manual controls remain available.
+
+---
+
+# 24. FREE MYRA CARE ASSISTANT
+
+Official name:
+
+**MYRA Care Assistant**
+
+Greeting:
+
+"Namaste! Welcome to MYRA Home Care Nursing Services. Main aapki Hindi aur English dono mein help kar sakta hoon. Aaj hum aapki kya madad karein?"
+
+### Most Important: NO PAID AI API
+
+Version 1 must use a free rule-based/FAQ-driven assistant.
+
+Do not use paid OpenAI, Gemini, Claude or other generative APIs for live customer interactions.
+
+Do not create a fake claim of advanced generative AI.
+
+The initial assistant should support:
+
+- Hindi.
+- English.
+- Hinglish.
+- MYRA service information.
+- FAQs.
+- Booking guidance.
+- Payment guidance.
+- Cancellation information.
+- Support information.
+- Manager handoff.
+
+### Interface
+
+Both:
+1. Floating bottom-right chat.
+2. Dedicated AI Assistant page.
+
+### Memory and History
+
+Customer can:
+- Turn Auto-Save ON/OFF.
+- Delete individual conversations.
+- Clear all history.
+- Turn memory ON/OFF.
+- View saved preferences.
+- Delete individual/all memories.
+
+Save only non-sensitive preferences, such as language or frequently viewed services.
+
+Never store medical details in AI memory.
+
+### AI Booking
+
+Use Smart Conversation.
+
+The assistant collects required booking details naturally.
+
+Before submitting, show an interactive booking card containing:
+- Service.
+- Patient.
+- Schedule.
+- Address.
+- Care instructions.
+- Quotation status.
+
+Allow editing.
+
+Require the customer to explicitly press Confirm & Submit.
+
+Send the request to Manager after confirmation.
+
+AI must never:
+- Confirm staff availability.
+- Confirm the service booking.
+- Assign Staff.
+- Mark payment as paid.
+- Diagnose.
+- Prescribe medication.
+- Recommend treatment.
+- Replace emergency medical care.
+
+### Knowledge Management
+
+Owner controls approved FAQ and business information.
+
+Manager may submit suggested questions/answers for Owner review.
+
+Only Owner-approved information becomes part of the published knowledge base.
+
+---
+
+# 25. DATA BACKUP
+
+My desired backup policy:
+
+- Daily automatic backup.
+- 90-day retention.
+- Future restore system.
+
+However, zero-budget security is mandatory.
+
+First verify whether a reliable automatic backup with 90-day retention can be implemented without billing or paid services.
+
+If not:
+- Do not activate paid backup.
+- Do not falsely show backup as successful.
+- Clearly mark automated backups as Future Phase.
+- Provide safe manual export and backup instructions.
+- Never put customer/patient database backups in a public GitHub repository.
+
+Never enable a paid billing plan without my written approval.
+
+---
+
+# 26. TECHNICAL ARCHITECTURE AND DATA SECURITY
+
+Choose a suitable architecture after inspecting my existing code.
+
+Requirements:
+
+- Maintainable frontend.
+- Secure backend.
+- Database access control.
+- Authentication.
+- Role-based access control.
+- Input validation.
+- Rate limiting.
+- Secure environment variables.
+- Protected API endpoints.
+- Audit logs.
+- Error handling.
+
+Create proper data models for:
+
+- Users.
+- Roles.
+- Customer profiles.
+- Patient profiles.
+- Addresses.
+- Staff.
+- Staff qualifications.
+- Services.
+- Service availability.
+- Bookings.
+- Assignments.
+- Quotations.
+- Payments.
+- Invoices.
+- Conversations.
+- Messages.
+- Complaints.
+- Support tickets.
+- Notifications.
+- Reviews.
+- Blog posts.
+- Website content.
+- SEO settings.
+- UPI configuration.
+- Activity logs.
+- AI preferences.
+- Session records.
+
+Apply least-privilege security.
+
+Critical tests must verify:
+
+- Customer A cannot read Customer B's private information.
+- Staff cannot access unassigned bookings.
+- Manager cannot access Owner-only controls.
+- Customers cannot mark payments paid.
+- Staff cannot approve their own accounts.
+- Frontend role changes cannot create administrative access.
+- Unauthenticated users cannot access private dashboards.
+- No API secret is exposed in frontend source.
+
+No document storage is needed in Version 1.
+
+---
+
+# 27. DEVELOPMENT METHOD — STEP BY STEP
+
+Work in manageable phases.
+
+Do not attempt a risky complete rewrite.
+
+## Phase 1 — Audit
+
+Inspect project, database, APIs and current errors.
+
+Prepare backup.
+
+Provide a clear report.
+
+## Phase 2 — Architecture
+
+Select the genuinely free and secure technology stack.
+
+Verify official prices and quotas.
+
+Prepare database schema and role permissions.
+
+## Phase 3 — Authentication
+
+Complete Google Sign-In and role management.
+
+Test Customer, Owner, Manager and Staff access.
+
+## Phase 4 — Website
+
+Complete the public website, services, SEO, content, contact and footer.
+
+## Phase 5 — Customer Dashboard
+
+Complete profiles, patients, bookings, tracking, payment and support.
+
+## Phase 6 — Owner and Manager
+
+Build separate professional dashboards.
+
+Complete booking, staff, quotation, payment, analytics, settings and management workflows.
+
+## Phase 7 — Staff Dashboard
+
+Complete Staff profile, assignments, schedules, attendance, notifications and chat.
+
+## Phase 8 — Notifications and Security
+
+Implement available free notification channels.
+
+Test roles, sessions and security policies.
+
+## Phase 9 — MYRA Care Assistant
+
+Complete free FAQ/rule-based assistant, Smart Conversation booking and Owner-managed knowledge base.
+
+## Phase 10 — Quality Assurance
+
+Perform complete testing.
+
+Fix identified bugs.
+
+Repeat testing after fixes.
+
+## Phase 11 — Deployment
+
+Deploy using the verified free hosting option.
+
+Configure the free database and secure environment variables.
+
+Provide the final live URL.
+
+## Phase 12 — Final Delivery
+
+Prepare the complete source code, documentation, test reports and guides.
+
+---
+
+# 28. MANDATORY TESTING AND BUG FIXING
+
+This is not optional.
+
+After implementing the system, test the complete application.
+
+### A. Functional Testing
+
+Test:
+- Login/logout.
+- Customer registration.
+- Staff onboarding.
+- Owner approval.
+- Booking requests.
+- ASAP requests.
+- Scheduled requests.
+- Manual bookings.
+- Quotations.
+- 72-hour expiry.
+- Staff assignments.
+- Staff acceptance/rejection.
+- Payment verification.
+- UPI.
+- Cash.
+- Rescheduling.
+- Cancellation.
+- Complaints.
+- Support tickets.
+- Reviews.
+- Chat.
+- Notifications.
+- AI Assistant.
+- Website controls.
+- Language switching.
+- Account deletion.
+
+### B. Security Testing
+
+Test:
+- Unauthorized dashboard access.
+- Role escalation.
+- Customer data isolation.
+- Patient privacy.
+- Staff access restrictions.
+- Manager restrictions.
+- Owner controls.
+- Session expiration.
+- API protection.
+- Secret exposure.
+- Authentication bypass.
+- OTP abuse.
+- Input validation.
+- XSS protection.
+- Database security rules.
+
+### C. UI Testing
+
+Test:
+- Desktop.
+- Laptop.
+- Android phones.
+- Small screens.
+- Tablet layouts.
+- Mobile navigation.
+- Dark Staff Dashboard.
+- Light Customer and Manager interfaces.
+- Forms.
+- Buttons.
+- Modals.
+- Notifications.
+- Responsive charts.
+
+### D. Performance Testing
+
+Check:
+- Page loading.
+- Image optimization.
+- Unnecessary API requests.
+- Slow database queries.
+- Mobile responsiveness.
+- Large data lists.
+- Dashboard performance.
+
+### E. Automated Testing
+
+Where supported, run:
+- Unit tests.
+- Integration tests.
+- Frontend component tests.
+- Backend/API tests.
+- Database security-rule tests.
+- End-to-end browser tests.
+- Flutter tests and Android builds if the Flutter apps are included.
+
+Use fake/sample customer and patient data.
+
+Never conduct tests using real medical records.
+
+### F. Bug-Fixing Requirement
+
+After testing:
+
+1. List every bug.
+2. Assign severity.
+3. Fix critical bugs.
+4. Fix high-priority bugs.
+5. Fix ordinary UI and functional bugs.
+6. Rerun affected tests.
+7. Rerun the complete critical test suite.
+8. Prepare a final test report.
+
+Never claim a test passed unless it was actually executed.
+
+Clearly identify any tests blocked by missing credentials, external services or unavailable tools.
+
+---
+
+# 29. USER GUIDANCE REQUIREMENTS
+
+I am not a professional software developer.
+
+You must explain everything in simple Hindi/Hinglish.
+
+When asking me to do something:
+
+- Give the exact folder path.
+- Give the exact filename.
+- Give exact PowerShell commands.
+- Tell me where to click.
+- Tell me what output I should expect.
+- Explain errors in simple language.
+- Give the complete corrected file when replacing a file is necessary.
+- Never tell me vaguely to "configure the backend."
+- Explain exactly how to configure it.
+
+Keep steps manageable.
+
+Do not repeatedly ask questions that have already been answered.
+
+Use the existing information in this prompt.
+
+For unknown business details, create configurable settings and safe placeholders instead of stopping the entire development process.
+
+Never expose passwords, API keys, service account credentials or secrets in chat, frontend code or GitHub.
+
+---
+
+# 30. FINAL DELIVERABLES — ALL REQUIRED
+
+When the project is complete, provide:
+
+### 1. Complete Source Code
+
+All final files, including:
+- Frontend.
+- Backend.
+- Database schema.
+- Security rules.
+- Authentication setup.
+- API endpoints.
+- Tests.
+- Assets.
+- Configuration files.
+- Documentation.
+
+### 2. Downloadable Project ZIP
+
+Prepare a complete project ZIP if your environment supports file creation.
+
+Include all required source files.
+
+Exclude:
+- Real secrets.
+- Passwords.
+- Private keys.
+- Production customer data.
+- Database dumps containing personal information.
+
+### 3. Technical Documentation
+
+Provide:
+- Architecture overview.
+- Database schema.
+- API documentation.
+- Role permissions.
+- Environment variable instructions.
+- Free-tier limitations.
+- Security implementation.
+
+### 4. Installation Guide
+
+Give exact instructions for:
+- Installing dependencies.
+- Setting up the backend.
+- Connecting the database.
+- Configuring Google Sign-In.
+- Creating Owner account.
+- Inviting Manager.
+- Inviting Staff.
+- Running the website.
+- Running the dashboards.
+
+### 5. Deployment Guide
+
+Include:
+- Hosting account setup.
+- Free project creation.
+- Environment configuration.
+- Database deployment.
+- Hosting deployment.
+- Final website URL.
+- Updating future versions.
+
+### 6. Owner User Manual
+
+Explain every Owner Dashboard section.
+
+### 7. Manager User Manual
+
+Explain daily operations.
+
+### 8. Staff User Manual
+
+Explain assignments, schedules, attendance and service workflow.
+
+### 9. Customer User Manual
+
+Explain registration, profiles, bookings, payments and support.
+
+### 10. Testing and Bug Report
+
+Provide a table:
+
+| Test | Status | Result |
+|---|---|---|
+| Authentication | Pass/Fail | Details |
+| Booking | Pass/Fail | Details |
+| Payment | Pass/Fail | Details |
+| Staff Assignment | Pass/Fail | Details |
+| Security | Pass/Fail | Details |
+| Notifications | Pass/Fail | Details |
+| Mobile UI | Pass/Fail | Details |
+| Performance | Pass/Fail | Details |
+
+### 11. Free Service Register
+
+List every connected third-party service with:
+- Service name.
+- Purpose.
+- Free quota.
+- Payment/card requirement.
+- Limitations.
+- Usage monitoring instructions.
+
+### 12. Remaining Limitations
+
+Clearly list:
+- Features fully working.
+- Features partially working.
+- Features disabled due to free-tier restrictions.
+- Features deferred to future versions.
+- Any remaining known bugs.
+
+---
+
+# 31. FINAL ACCEPTANCE CONDITIONS
+
+MYRA is not considered complete merely because the homepage looks good.
+
+It is complete only when:
+
+1. Website works.
+2. All four dashboards work.
+3. Authentication works.
+4. Role-based permissions work.
+5. Booking workflow works.
+6. Quotations work.
+7. Cash and UPI workflows work.
+8. Staff assignment works.
+9. Customer support works.
+10. Notifications work to the extent supported by free services.
+11. Complaint management works.
+12. Analytics works.
+13. SEO basics work.
+14. MYRA Care Assistant works within its free rule-based scope.
+15. No unwanted upload controls exist.
+16. Mobile layouts work.
+17. Critical security tests pass.
+18. Critical bugs are fixed.
+19. Final source code is complete.
+20. Setup and deployment guides are provided.
+
+**MOST IMPORTANT FINAL INSTRUCTION:**
+
+Do not sacrifice security just to make a feature appear complete.
+
+Do not sacrifice the zero-budget requirement just to activate a feature.
+
+Do not create non-functional buttons or fake features.
+
+If a requirement cannot be completed with the existing free resources, tell me clearly and keep it safely disabled.
+
+Start by inspecting my existing project. Give me the project audit first, then proceed through implementation phase by phase.
+
+My ultimate goal is to have a professional, secure, fully tested MYRA Home Care Nursing Services platform that I can operate without paying for hosting, AI APIs, database subscriptions or unnecessary services.
+
+**Build it carefully, test it thoroughly, fix the bugs and deliver the complete final project with every required file and an easy Hindi/Hinglish guide.**

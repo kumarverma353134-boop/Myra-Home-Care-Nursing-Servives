@@ -1,0 +1,6 @@
+{
+  "name": "MYRA HomeCare Nursing Services",
+  "description": "Professional home care nursing services platform in Patna, Bihar. Featuring dedicated dashboards for Owner, Manager, Staff, and Customers, 24x7 service requests, UPI payments, and zero-budget architecture.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}
