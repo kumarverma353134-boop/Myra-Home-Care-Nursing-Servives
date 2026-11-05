@@ -44,6 +44,7 @@ export default function App() {
   // Application View: 'website' | 'customer' | 'manager' | 'staff' | 'owner' | 'login'
   const [currentView, setCurrentView] = useState<'website' | 'customer' | 'manager' | 'staff' | 'owner' | 'login'>('website');
   const [currentUser, setCurrentUser] = useState<UserProfile | null>(null);
+  const [authReady, setAuthReady] = useState(false);
   const [settings, setSettings] = useState(() => storage.getSettings());
   const [services, setServices] = useState(() => storage.getServices());
   const [reviews, setReviews] = useState(() => storage.getReviews(true));
@@ -95,12 +96,19 @@ export default function App() {
       if (!firebaseUser) {
         setCurrentUser(null);
         setCurrentView((view) => view === 'login' ? 'login' : 'website');
+        setAuthReady(true);
         return;
       }
 
       try {
         const profileSnapshot = await getDoc(doc(db, 'users', firebaseUser.uid));
-        if (!profileSnapshot.exists()) return;
+        if (!profileSnapshot.exists()) {
+          setCurrentUser(null);
+          await signOut(auth);
+          setCurrentView('website');
+          setAuthReady(true);
+          return;
+        }
 
         const profile = profileSnapshot.data();
         const allowedRoles: UserRole[] = ['customer', 'staff', 'manager', 'owner'];
@@ -132,6 +140,10 @@ export default function App() {
       } catch (error) {
         console.error('Unable to load MYRA account profile:', error);
         await signOut(auth);
+        setCurrentUser(null);
+        setCurrentView('website');
+      } finally {
+        setAuthReady(true);
       }
     });
 
@@ -176,6 +188,18 @@ export default function App() {
       document.getElementById(sectionId)?.scrollIntoView({ behavior: 'smooth' });
     }
   };
+
+  // Do not briefly show the public website while Firebase restores an existing session.
+  if (!authReady) {
+    return (
+      <div className={`min-h-screen flex items-center justify-center bg-[#071228] text-white`}>
+        <div className="flex flex-col items-center gap-3">
+          <div className="h-10 w-10 rounded-full border-4 border-cyan-400/30 border-t-cyan-400 animate-spin" />
+          <p className="text-sm font-semibold tracking-wide">MYRA is checking your session...</p>
+        </div>
+      </div>
+    );
+  }
 
   // If maintenance mode is active, visitors see only the public maintenance page.
   if (settings.maintenanceMode && currentView === 'website') {
