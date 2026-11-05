@@ -255,14 +255,14 @@ export default function App() {
         {currentView === 'staff' && currentUser && (
           <StaffDashboard
             user={currentUser}
-            onLogout={() => setCurrentView('website')}
+            onLogout={() => { void signOut(auth); setCurrentView('website'); }}
           />
         )}
 
         {currentView === 'owner' && currentUser && (
           <OwnerDashboard
             user={currentUser}
-            onLogout={() => setCurrentView('website')}
+            onLogout={() => { void signOut(auth); setCurrentView('website'); }}
             onOpenZip={() => setZipModalOpen(true)}
           />
         )}
