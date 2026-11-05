@@ -9,9 +9,9 @@ import {
   signInWithEmailAndPassword,
   signInWithPopup,
   signOut,
-  updateProfile,
-  User
+  updateProfile
 } from 'firebase/auth';
+import type { User } from 'firebase/auth';
 import { doc, getDoc, setDoc } from 'firebase/firestore';
 import { HeartPulse } from 'lucide-react';
 
