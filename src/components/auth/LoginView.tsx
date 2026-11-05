@@ -3,11 +3,14 @@ import { UserProfile, UserRole } from '../../types';
 import { auth, db, googleProvider } from '../../services/firebase';
 import {
   createUserWithEmailAndPassword,
+  EmailAuthProvider,
+  linkWithCredential,
   sendPasswordResetEmail,
   signInWithEmailAndPassword,
   signInWithPopup,
   signOut,
-  updateProfile
+  updateProfile,
+  User
 } from 'firebase/auth';
 import { doc, getDoc, setDoc } from 'firebase/firestore';
 import { HeartPulse } from 'lucide-react';
@@ -26,6 +29,8 @@ export const LoginView: React.FC<LoginViewProps> = ({ onLoginSuccess, onCancel }
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
   const [showPassword, setShowPassword] = useState(false);
+  const [confirmPassword, setConfirmPassword] = useState('');
+  const [pendingGoogleUser, setPendingGoogleUser] = useState<User | null>(null);
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState('');
   const [message, setMessage] = useState('');
@@ -107,6 +112,14 @@ export const LoginView: React.FC<LoginViewProps> = ({ onLoginSuccess, onCancel }
     setMessage('');
     try {
       const credential = await signInWithPopup(auth, googleProvider);
+      const hasEmailPassword = credential.user.providerData.some(
+        (provider) => provider.providerId === 'password'
+      );
+      if (!hasEmailPassword) {
+        setPendingGoogleUser(credential.user);
+        setMessage('Set a password for this Google account so you can later use either Google or Email + Password.');
+        return;
+      }
       await finishSignIn(credential.user, true);
     } catch (err) {
       const code = (err as { code?: string })?.code;
@@ -118,6 +131,32 @@ export const LoginView: React.FC<LoginViewProps> = ({ onLoginSuccess, onCancel }
     } finally {
       setLoading(false);
     }
+  };
+
+  const handleSetGooglePassword = async (event: React.FormEvent) => {
+    event.preventDefault();
+    if (!pendingGoogleUser || loading) return;
+    if (password.length < 6) { setError('Choose a password with at least 6 characters.'); return; }
+    if (password !== confirmPassword) { setError('The passwords do not match.'); return; }
+    setLoading(true);
+    setError('');
+    try {
+      if (!pendingGoogleUser.email) throw new Error('A valid Google email is required.');
+      const emailCredential = EmailAuthProvider.credential(pendingGoogleUser.email, password);
+      const linked = await linkWithCredential(pendingGoogleUser, emailCredential);
+      setPendingGoogleUser(null);
+      setConfirmPassword('');
+      setMessage('Password linked successfully. You can now use Google or Email + Password.');
+      await finishSignIn(linked.user, true);
+    } catch (err) {
+      const code = (err as { code?: string })?.code;
+      const friendly: Record<string, string> = {
+        'auth/weak-password': 'Choose a password with at least 6 characters.',
+        'auth/provider-already-linked': 'A password is already linked. Please sign in with Email + Password.',
+        'auth/credential-already-in-use': 'This email/password credential is already linked to another account.'
+      };
+      setError(friendly[code || ''] || (err instanceof Error ? err.message : 'Unable to link password. Please try again.'));
+    } finally { setLoading(false); }
   };
 
   const handleEmailSubmit = async (event: React.FormEvent) => {
