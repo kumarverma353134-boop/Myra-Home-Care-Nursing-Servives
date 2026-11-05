@@ -17,7 +17,7 @@ export const Hero: React.FC<HeroProps> = ({ settings, onOpenBooking, onOpenServi
         {/* Real Poster Banner uploaded by user */}
         <div className="mb-6 rounded-3xl overflow-hidden border border-cyan-500/40 shadow-2xl bg-[#030914] relative group">
           <img
-            src="/assets/aistudio/IMG-20261104-WA0013_4d11b61e.jpg"
+            src={`${import.meta.env.BASE_URL}assets/aistudio/IMG-20261104-WA0013_4d11b61e.jpg`}
             alt="MYRA Home Care Nursing Services Patna Official Banner"
             className="w-full h-auto object-contain max-h-[500px] mx-auto rounded-3xl transition-transform duration-500 group-hover:scale-[1.01]"
           />
