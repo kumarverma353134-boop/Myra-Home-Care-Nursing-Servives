@@ -221,8 +221,6 @@ export default function App() {
             <Footer
               settings={settings}
               onOpenLegal={(key) => setLegalModalKey(key)}
-              onOpenLogin={(role) => handleOpenLogin(role)}
-              onOpenZip={() => setZipModalOpen(true)}
             />
           </>
         )}
