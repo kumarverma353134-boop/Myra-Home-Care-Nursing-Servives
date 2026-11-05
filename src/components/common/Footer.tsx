@@ -1,15 +1,13 @@
 import React from 'react';
 import { Phone, Mail, MapPin, MessageCircle, ShieldCheck } from 'lucide-react';
-import { UserRole, SystemSettings } from '../../types';
+import { SystemSettings } from '../../types';
 
 interface FooterProps {
   settings: SystemSettings;
   onOpenLegal: (pageKey: string) => void;
-  onOpenLogin: (role: UserRole) => void;
-  onOpenZip: () => void;
 }
 
-export const Footer: React.FC<FooterProps> = ({ settings, onOpenLegal, onOpenLogin, onOpenZip }) => {
+export const Footer: React.FC<FooterProps> = ({ settings, onOpenLegal }) => {
   const cleanPhone = settings.phone.replace(/[^0-9]/g, '');
 
   return (
@@ -95,14 +93,6 @@ export const Footer: React.FC<FooterProps> = ({ settings, onOpenLegal, onOpenLog
               <p className="text-[11px] leading-relaxed">
                 Bedside nursing, patient attendants (GDA), and clinical procedures coordinated across all localities of Patna.
               </p>
-              <div className="pt-2">
-                <button
-                  onClick={() => onOpenLogin('manager')}
-                  className="text-cyan-400 hover:text-cyan-300 font-bold hover:underline inline-flex items-center gap-1 text-[11px]"
-                >
-                  <span>Staff & Duty Portal Access →</span>
-                </button>
-              </div>
             </div>
           </div>
         </div>
