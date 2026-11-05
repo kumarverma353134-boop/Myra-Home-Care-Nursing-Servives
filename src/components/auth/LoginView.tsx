@@ -241,6 +241,15 @@ export const LoginView: React.FC<LoginViewProps> = ({ onLoginSuccess, onCancel }
             <div className="h-px bg-slate-700 flex-1" /><span>or continue with email</span><div className="h-px bg-slate-700 flex-1" />
           </div>
 
+          {pendingGoogleUser ? (
+            <form onSubmit={handleSetGooglePassword} className="space-y-3">
+              <p className="text-sm text-cyan-200">Set a password for {pendingGoogleUser.email} to enable both login methods.</p>
+              <input type={showPassword ? 'text' : 'password'} value={password} onChange={(event) => setPassword(event.target.value)} placeholder="Create password (minimum 6 characters)" minLength={6} required className="w-full rounded-xl bg-[#08152e] border border-cyan-950 px-4 py-3 text-sm text-white" />
+              <input type={showPassword ? 'text' : 'password'} value={confirmPassword} onChange={(event) => setConfirmPassword(event.target.value)} placeholder="Confirm password" minLength={6} required className="w-full rounded-xl bg-[#08152e] border border-cyan-950 px-4 py-3 text-sm text-white" />
+              <button type="button" onClick={() => setShowPassword(!showPassword)} className="text-xs text-cyan-300">{showPassword ? 'Hide' : 'Show'} passwords</button>
+              <button type="submit" disabled={loading} className="w-full py-3 bg-cyan-600 text-white font-bold rounded-xl">{loading ? 'Saving...' : 'Save Password & Continue'}</button>
+            </form>
+          ) : (
           <form onSubmit={handleEmailSubmit} className="space-y-3">
             {mode === 'signup' && (
               <input
@@ -292,8 +301,9 @@ export const LoginView: React.FC<LoginViewProps> = ({ onLoginSuccess, onCancel }
               {loading ? 'Please wait...' : mode === 'signup' ? 'Create customer account' : 'Sign in with Email'}
             </button>
           </form>
+          )}
 
-          <p className="text-center text-xs text-slate-400">
+          {!pendingGoogleUser && <p className="text-center text-xs text-slate-400">
             {mode === 'login' ? "New to MYRA? " : 'Already have an account? '}
             <button
               type="button"
@@ -303,7 +313,7 @@ export const LoginView: React.FC<LoginViewProps> = ({ onLoginSuccess, onCancel }
             >
               {mode === 'login' ? 'Create customer account' : 'Sign in'}
             </button>
-          </p>
+          </p>}
 
           <p className="text-[11px] leading-5 text-slate-400 text-center">
             Your dashboard is assigned automatically from your approved MYRA account role. Customer registration cannot create staff, manager or owner access.
