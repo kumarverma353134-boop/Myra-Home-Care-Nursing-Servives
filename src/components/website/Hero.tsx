@@ -14,19 +14,6 @@ export const Hero: React.FC<HeroProps> = ({ settings, onOpenBooking, onOpenServi
   return (
     <section id="hero" className="py-6 sm:py-10 bg-[#071228] transition-colors">
       <div className="max-w-6xl mx-auto px-4 sm:px-6">
-        {/* Real Poster Banner uploaded by user */}
-        <div className="mb-6 rounded-3xl overflow-hidden border border-cyan-500/40 shadow-2xl bg-[#030914] relative group">
-          <img
-            src={`${import.meta.env.BASE_URL}assets/aistudio/IMG-20261104-WA0013_4d11b61e.jpg`}
-            alt="MYRA Home Care Nursing Services Patna Official Banner"
-            className="w-full h-auto object-contain max-h-[500px] mx-auto rounded-3xl transition-transform duration-500 group-hover:scale-[1.01]"
-          />
-          <div className="absolute top-3 right-3 sm:top-4 sm:right-4 bg-[#071228]/90 backdrop-blur-md px-3.5 py-1 rounded-full border border-emerald-400/40 text-xs font-black text-emerald-300 shadow-lg flex items-center gap-1.5">
-            <span className="w-2 h-2 rounded-full bg-emerald-400 animate-pulse" />
-            <span>24/7 Verified Patna Care</span>
-          </div>
-        </div>
-
         {/* Quick Action Bar under the banner */}
         <div className="bg-[#0c1a36] rounded-2xl p-4 sm:p-6 border border-cyan-900/40 shadow-xl mb-6 flex flex-wrap items-center justify-between gap-4">
           <div className="space-y-1">
