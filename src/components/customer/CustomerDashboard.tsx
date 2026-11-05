@@ -375,18 +375,6 @@ export const CustomerDashboard: React.FC<CustomerDashboardProps> = ({
 
         {/* Content Pane */}
         <div className="lg:col-span-9 space-y-6">
-          {/* Featured MYRA Home Care Banner */}
-          <div className="rounded-3xl overflow-hidden border border-cyan-500/40 shadow-2xl bg-[#030914] relative group">
-            <img
-              src="/assets/aistudio/IMG-20261104-WA0013_4d11b61e.jpg"
-              alt="MYRA Home Care Banner"
-              className="w-full h-auto object-contain max-h-[280px] sm:max-h-[340px] mx-auto rounded-3xl"
-            />
-            <div className="absolute top-3 right-3 bg-[#071228]/90 backdrop-blur-md px-3 py-1 rounded-full border border-emerald-400/40 text-[11px] font-black text-emerald-300 shadow-md">
-              Patna 24/7 Verified Care
-            </div>
-          </div>
-
           {/* TAB 0: 16 Services (4x4 Grid) */}
           {activeTab === 'services' && (
             <div className="bg-[#0c1a36] rounded-3xl border border-cyan-950 p-6 space-y-6 shadow-xl">
