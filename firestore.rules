@@ -1,0 +1,30 @@
+rules_version = '2';
+
+service cloud.firestore {
+  match /databases/{database}/documents {
+    // A signed-in customer may create only their own basic customer profile.
+    // Privileged roles must be provisioned manually by an administrator.
+    match /users/{userId} {
+      allow read: if request.auth != null && request.auth.uid == userId;
+
+      allow create: if request.auth != null
+        && request.auth.uid == userId
+        && request.resource.data.role == 'customer'
+        && request.resource.data.status == 'active'
+        && request.resource.data.keys().hasOnly([
+          'uid', 'name', 'email', 'role', 'status', 'createdAt'
+        ])
+        && request.resource.data.uid == request.auth.uid
+        && request.resource.data.email == request.auth.token.email;
+
+      // Clients cannot change role, status, or identity fields.
+      allow update, delete: if false;
+    }
+
+    // Deny all application data until each collection receives
+    // explicit owner/customer/staff/manager authorization rules.
+    match /{document=**} {
+      allow read, write: if false;
+    }
+  }
+}
