@@ -25,6 +25,7 @@ export const LoginView: React.FC<LoginViewProps> = ({ onLoginSuccess, onCancel }
   const [name, setName] = useState('');
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
+  const [showPassword, setShowPassword] = useState(false);
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState('');
   const [message, setMessage] = useState('');
@@ -222,16 +223,21 @@ export const LoginView: React.FC<LoginViewProps> = ({ onLoginSuccess, onCancel }
               required
               className="w-full rounded-xl bg-[#08152e] border border-cyan-950 px-4 py-3 text-sm text-white outline-none focus:border-cyan-500"
             />
-            <input
-              type="password"
-              value={password}
-              onChange={(event) => setPassword(event.target.value)}
-              placeholder="Password (minimum 6 characters)"
-              autoComplete={mode === 'signup' ? 'new-password' : 'current-password'}
-              minLength={6}
-              required
-              className="w-full rounded-xl bg-[#08152e] border border-cyan-950 px-4 py-3 text-sm text-white outline-none focus:border-cyan-500"
-            />
+            <div className="relative">
+              <input
+                type={showPassword ? 'text' : 'password'}
+                value={password}
+                onChange={(event) => setPassword(event.target.value)}
+                placeholder="Password (minimum 6 characters)"
+                autoComplete={mode === 'signup' ? 'new-password' : 'current-password'}
+                minLength={6}
+                required
+                className="w-full rounded-xl bg-[#08152e] border border-cyan-950 px-4 py-3 pr-20 text-sm text-white outline-none focus:border-cyan-500"
+              />
+              <button type="button" onClick={() => setShowPassword(!showPassword)} className="absolute inset-y-0 right-3 text-xs font-semibold text-cyan-300">
+                {showPassword ? 'Hide' : 'Show'}
+              </button>
+            </div>
 
             {mode === 'login' && (
               <div className="text-right">
