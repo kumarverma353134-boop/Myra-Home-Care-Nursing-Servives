@@ -56,7 +56,6 @@ export default function App() {
   const [aiAssistantOpen, setAiAssistantOpen] = useState(false);
   const [zipModalOpen, setZipModalOpen] = useState(false);
   const [legalModalKey, setLegalModalKey] = useState<string | null>(null);
-  const [preferredLoginRole, setPreferredLoginRole] = useState<UserRole>('customer');
 
   // Theme mode: dark by default as requested by user
   const [isDarkMode, setIsDarkMode] = useState<boolean>(() => {
@@ -103,8 +102,9 @@ export default function App() {
       try {
         const profileSnapshot = await getDoc(doc(db, 'users', firebaseUser.uid));
         if (!profileSnapshot.exists()) {
+          // An account without a MYRA profile receives no dashboard access.
+          // LoginView creates a customer profile only during explicit customer signup.
           setCurrentUser(null);
-          await signOut(auth);
           setCurrentView('website');
           setAuthReady(true);
           return;
@@ -173,8 +173,7 @@ export default function App() {
     setBookingModalOpen(true);
   };
 
-  const handleOpenLogin = (role: UserRole = 'customer') => {
-    setPreferredLoginRole(role);
+  const handleOpenLogin = (_role?: UserRole) => {
     setCurrentView('login');
   };
 
@@ -251,7 +250,6 @@ export default function App() {
 
         {currentView === 'login' && (
           <LoginView
-            initialRole={preferredLoginRole}
             onLoginSuccess={(usr) => {
               setCurrentUser(usr);
               setCurrentView(usr.role);
