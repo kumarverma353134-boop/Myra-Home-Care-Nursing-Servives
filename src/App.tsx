@@ -190,30 +190,6 @@ export default function App() {
   }
 
   return (
-      <div className={isDarkMode ? 'dark' : ''}>
-        <RoleSwitcherBar
-          currentRole="website"
-          onSelectRole={handleSelectRole}
-          onOpenZipModal={() => setZipModalOpen(true)}
-          isDarkMode={isDarkMode}
-          onToggleDarkMode={handleToggleDarkMode}
-        />
-        <MaintenanceView
-          settings={settings}
-          onOpenOwner={() => {
-            storage.switchRole('owner');
-            setCurrentView('owner');
-          }}
-        />
-        <ZipDownloadModal
-          isOpen={zipModalOpen}
-          onClose={() => setZipModalOpen(false)}
-        />
-      </div>
-    );
-  }
-
-  return (
     <div className={`min-h-screen flex flex-col font-sans bg-white dark:bg-[#071228] text-slate-900 dark:text-slate-100 transition-colors ${isDarkMode ? 'dark' : ''}`}>
       {/* 2. Primary View Container */}
       <main className="flex-1">
@@ -274,7 +250,7 @@ export default function App() {
         {currentView === 'manager' && currentUser && (
           <ManagerDashboard
             user={currentUser}
-            onLogout={() => setCurrentView('website')}
+            onLogout={() => { void signOut(auth); setCurrentView('website'); }}
           />
         )}
 
