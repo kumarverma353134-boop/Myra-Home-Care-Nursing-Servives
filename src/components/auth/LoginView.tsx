@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { UserRole, UserProfile } from '../../types';
 import { auth, db, googleProvider } from '../../services/firebase';
-import { signInWithPopup } from 'firebase/auth';
+import { signInWithPopup, signOut } from 'firebase/auth';
 import { doc, getDoc, setDoc } from 'firebase/firestore';
 import { HeartPulse } from 'lucide-react';
 
@@ -40,12 +40,12 @@ export const LoginView: React.FC<LoginViewProps> = ({
 
       if (!profileSnapshot.exists()) {
         if (selectedRole !== 'customer') {
-          await auth.signOut();
+          await signOut(auth);
           throw new Error('This account is not authorized for the selected portal. Contact the MYRA administrator.');
         }
 
         if (!firebaseUser.email || !firebaseUser.emailVerified) {
-          await auth.signOut();
+          await signOut(auth);
           throw new Error('Please sign in with a verified Google account.');
         }
 
@@ -75,24 +75,24 @@ export const LoginView: React.FC<LoginViewProps> = ({
       const data = profileSnapshot.data();
       const allowedRoles: UserRole[] = ['customer', 'staff', 'manager', 'owner'];
       if (!allowedRoles.includes(data.role as UserRole)) {
-        await auth.signOut();
+        await signOut(auth);
         throw new Error('Your account has an invalid access role. Contact the MYRA administrator.');
       }
 
       if (data.role !== selectedRole) {
-        await auth.signOut();
+        await signOut(auth);
         throw new Error(`This Google account is not authorized for the ${roleLabels[selectedRole]} portal.`);
       }
 
       if (data.status !== 'active') {
-        await auth.signOut();
+        await signOut(auth);
         throw new Error(data.status === 'pending_approval'
           ? 'Your account is awaiting administrator approval.'
           : 'Your account is not active. Contact the MYRA administrator.');
       }
 
       if (data.uid !== firebaseUser.uid || data.email !== firebaseUser.email) {
-        await auth.signOut();
+        await signOut(auth);
         throw new Error('Account identity verification failed. Contact the MYRA administrator.');
       }
 
