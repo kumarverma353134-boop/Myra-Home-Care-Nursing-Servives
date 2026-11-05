@@ -150,20 +150,16 @@ export default function App() {
     return unsubscribe;
   }, []);
 
-  // Dedicated portal URLs open a login screen only; the URL never grants a role.
+  // All portal URLs open the same login page. The saved account role selects the dashboard.
   useEffect(() => {
     const path = window.location.pathname.toLowerCase();
-    if (path.endsWith('/ownerloginservises')) {
-      setPreferredLoginRole('owner');
-      setCurrentView('login');
-    } else if (path.endsWith('/managerloginservises')) {
-      setPreferredLoginRole('manager');
-      setCurrentView('login');
-    } else if (path.endsWith('/staffloginservises')) {
-      setPreferredLoginRole('staff');
-      setCurrentView('login');
-    } else if (path.endsWith('/customerloginservises') || path.endsWith('/login')) {
-      setPreferredLoginRole('customer');
+    if (
+      path.endsWith('/ownerloginservises') ||
+      path.endsWith('/managerloginservises') ||
+      path.endsWith('/staffloginservises') ||
+      path.endsWith('/customerloginservises') ||
+      path.endsWith('/login')
+    ) {
       setCurrentView('login');
     }
   }, []);
