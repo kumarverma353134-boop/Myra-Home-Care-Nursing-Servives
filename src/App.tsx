@@ -5,11 +5,13 @@
  */
 
 import React, { useState, useEffect } from 'react';
+import { onAuthStateChanged, signOut } from 'firebase/auth';
+import { doc, getDoc } from 'firebase/firestore';
+import { auth, db } from './services/firebase';
 import { UserRole, UserProfile, HealthcareService } from './types';
 import { storage } from './services/storage';
 
 // Common Components
-import { RoleSwitcherBar } from './components/common/RoleSwitcherBar';
 import { Header } from './components/common/Header';
 import { Footer } from './components/common/Footer';
 import { WhatsAppButton } from './components/common/WhatsAppButton';
@@ -41,7 +43,7 @@ import { OwnerDashboard } from './components/owner/OwnerDashboard';
 export default function App() {
   // Application View: 'website' | 'customer' | 'manager' | 'staff' | 'owner' | 'login'
   const [currentView, setCurrentView] = useState<'website' | 'customer' | 'manager' | 'staff' | 'owner' | 'login'>('website');
-  const [currentUser, setCurrentUser] = useState<UserProfile | null>(() => storage.getCurrentUser());
+  const [currentUser, setCurrentUser] = useState<UserProfile | null>(null);
   const [settings, setSettings] = useState(() => storage.getSettings());
   const [services, setServices] = useState(() => storage.getServices());
   const [reviews, setReviews] = useState(() => storage.getReviews(true));
@@ -80,7 +82,6 @@ export default function App() {
   // Reactive subscription to storage changes
   useEffect(() => {
     const unsubscribe = storage.subscribe(() => {
-      setCurrentUser(storage.getCurrentUser());
       setSettings(storage.getSettings());
       setServices(storage.getServices());
       setReviews(storage.getReviews(true));
@@ -88,39 +89,72 @@ export default function App() {
     return unsubscribe;
   }, []);
 
-  // Handle URL path / Hash on load (e.g. /manager, /staff, /owner, /customer)
+  // Firebase is the only source of truth for signed-in identity and role.
+  useEffect(() => {
+    const unsubscribe = onAuthStateChanged(auth, async (firebaseUser) => {
+      if (!firebaseUser) {
+        setCurrentUser(null);
+        setCurrentView((view) => view === 'login' ? 'login' : 'website');
+        return;
+      }
+
+      try {
+        const profileSnapshot = await getDoc(doc(db, 'users', firebaseUser.uid));
+        if (!profileSnapshot.exists()) return;
+
+        const profile = profileSnapshot.data();
+        const allowedRoles: UserRole[] = ['customer', 'staff', 'manager', 'owner'];
+        if (
+          !allowedRoles.includes(profile.role as UserRole) ||
+          profile.status !== 'active' ||
+          profile.uid !== firebaseUser.uid ||
+          profile.email !== firebaseUser.email
+        ) {
+          await signOut(auth);
+          return;
+        }
+
+        const user: UserProfile = {
+          id: firebaseUser.uid,
+          name: typeof profile.name === 'string' ? profile.name : (firebaseUser.displayName || 'MYRA User'),
+          email: firebaseUser.email || '',
+          phone: typeof profile.phone === 'string' ? profile.phone : '',
+          role: profile.role as UserRole,
+          avatar: firebaseUser.photoURL || undefined,
+          createdAt: typeof profile.createdAt === 'string' ? profile.createdAt : new Date().toISOString(),
+          isVerified: profile.isVerified === true,
+          qualification: typeof profile.qualification === 'string' ? profile.qualification : undefined,
+          designation: typeof profile.designation === 'string' ? profile.designation : undefined,
+          status: 'active'
+        };
+        setCurrentUser(user);
+        setCurrentView(user.role);
+      } catch (error) {
+        console.error('Unable to load MYRA account profile:', error);
+        await signOut(auth);
+      }
+    });
+
+    return unsubscribe;
+  }, []);
+
+  // Dedicated portal URLs open a login screen only; the URL never grants a role.
   useEffect(() => {
     const path = window.location.pathname.toLowerCase();
-    const search = new URLSearchParams(window.location.search);
-    const roleParam = search.get('role');
-
-    if (path.includes('/owner') || roleParam === 'owner') {
-      storage.switchRole('owner');
-      setCurrentView('owner');
-    } else if (path.includes('/manager') || roleParam === 'manager') {
-      storage.switchRole('manager');
-      setCurrentView('manager');
-    } else if (path.includes('/staff') || roleParam === 'staff') {
-      storage.switchRole('staff');
-      setCurrentView('staff');
-    } else if (path.includes('/customer') || roleParam === 'customer') {
-      storage.switchRole('customer');
-      setCurrentView('customer');
-    } else if (path.includes('/login')) {
+    if (path.endsWith('/ownerloginservises')) {
+      setPreferredLoginRole('owner');
+      setCurrentView('login');
+    } else if (path.endsWith('/managerloginservises')) {
+      setPreferredLoginRole('manager');
+      setCurrentView('login');
+    } else if (path.endsWith('/staffloginservises')) {
+      setPreferredLoginRole('staff');
+      setCurrentView('login');
+    } else if (path.endsWith('/customerloginservises') || path.endsWith('/login')) {
+      setPreferredLoginRole('customer');
       setCurrentView('login');
     }
   }, []);
-
-  // Role Switcher Click Handler
-  const handleSelectRole = (role: UserRole | 'website') => {
-    if (role === 'website') {
-      setCurrentView('website');
-    } else {
-      const activeUser = storage.switchRole(role);
-      setCurrentUser(activeUser);
-      setCurrentView(role);
-    }
-  };
 
   const handleOpenBooking = (service?: HealthcareService) => {
     setSelectedServiceToBook(service || null);
@@ -143,9 +177,19 @@ export default function App() {
     }
   };
 
-  // If maintenance mode is active and user is viewing public website
+  // If maintenance mode is active, visitors see only the public maintenance page.
   if (settings.maintenanceMode && currentView === 'website') {
     return (
+      <div className={isDarkMode ? 'dark' : ''}>
+        <MaintenanceView
+          settings={settings}
+          onOpenOwner={() => handleOpenLogin('owner')}
+        />
+      </div>
+    );
+  }
+
+  return (
       <div className={isDarkMode ? 'dark' : ''}>
         <RoleSwitcherBar
           currentRole="website"
@@ -171,15 +215,6 @@ export default function App() {
 
   return (
     <div className={`min-h-screen flex flex-col font-sans bg-white dark:bg-[#071228] text-slate-900 dark:text-slate-100 transition-colors ${isDarkMode ? 'dark' : ''}`}>
-      {/* 1. Universal Top Role Switcher & ZIP Export Bar */}
-      <RoleSwitcherBar
-        currentRole={currentView}
-        onSelectRole={handleSelectRole}
-        onOpenZipModal={() => setZipModalOpen(true)}
-        isDarkMode={isDarkMode}
-        onToggleDarkMode={handleToggleDarkMode}
-      />
-
       {/* 2. Primary View Container */}
       <main className="flex-1">
         {currentView === 'website' && (
@@ -231,7 +266,7 @@ export default function App() {
           <CustomerDashboard
             user={currentUser}
             onOpenBooking={() => handleOpenBooking()}
-            onLogout={() => setCurrentView('website')}
+            onLogout={() => { void signOut(auth); setCurrentView('website'); }}
             onOpenAI={() => setAiAssistantOpen(true)}
           />
         )}
@@ -285,8 +320,8 @@ export default function App() {
         onClose={() => setBookingModalOpen(false)}
         preselectedService={selectedServiceToBook}
         onBookingSuccess={() => {
-          storage.switchRole('customer');
-          setCurrentView('customer');
+          if (currentUser?.role === 'customer') setCurrentView('customer');
+          else handleOpenLogin('customer');
         }}
       />
 
